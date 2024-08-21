@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zyc.mapper.EmpMapper">
+
+    <resultMap id="BaseResultMap" type="com.zyc.entity.Emp">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <id property="eid" column="eid" jdbcType="VARCHAR"/>
+            <result property="ename" column="ename" jdbcType="VARCHAR"/>
+            <result property="bdate" column="bdate" jdbcType="DATE"/>
+            <result property="sex" column="sex" jdbcType="CHAR"/>
+            <result property="city" column="city" jdbcType="VARCHAR"/>
+            <result property="isdel" column="isdel" jdbcType="CHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,eid,ename,
+        bdate,sex,city,
+        isdel
+    </sql>
+</mapper>

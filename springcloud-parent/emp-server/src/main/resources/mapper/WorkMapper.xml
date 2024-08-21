@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zyc.mapper.WorkMapper">
+
+    <resultMap id="BaseResultMap" type="com.zyc.entity.Work">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="eid" column="eid" jdbcType="VARCHAR"/>
+            <result property="did" column="did" jdbcType="VARCHAR"/>
+            <result property="startdate" column="startdate" jdbcType="DATE"/>
+            <result property="salary" column="salary" jdbcType="INTEGER"/>
+            <result property="isdel" column="isdel" jdbcType="CHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,eid,did,
+        startdate,salary,isdel
+    </sql>
+</mapper>

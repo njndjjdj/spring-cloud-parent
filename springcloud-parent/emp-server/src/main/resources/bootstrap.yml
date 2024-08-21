@@ -1,0 +1,15 @@
+server:
+  port: 8011
+spring:
+  application:
+    name: emp-server
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.1.148:8848
+      config:
+        server-addr: 192.168.1.148:8848
+        shared-configs:
+          - dataId: common.yml
+            refresh: true
+        file-extension: yml

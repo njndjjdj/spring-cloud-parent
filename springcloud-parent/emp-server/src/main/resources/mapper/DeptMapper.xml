@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zyc.mapper.DeptMapper">
+
+    <resultMap id="BaseResultMap" type="com.zyc.entity.Dept">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <id property="did" column="did" jdbcType="VARCHAR"/>
+            <result property="dname" column="dname" jdbcType="VARCHAR"/>
+            <result property="dcity" column="dcity" jdbcType="VARCHAR"/>
+            <result property="isdel" column="isdel" jdbcType="CHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,did,dname,
+        dcity,isdel
+    </sql>
+</mapper>
