@@ -2,6 +2,7 @@ package com.zyc.controller;
 
 import com.zyc.utils.R;
 import com.zyc.service.StudentService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,9 +28,12 @@ public class StudentController {
     @Resource
     private StudentService studentService;
 
+    @Value("${server.port}")
+    private String port;
+
     @GetMapping("/findAllStudent")
     public R findAllStudent() {
-        return R.ok().data("studentList", studentService.list());
+        return R.ok().data("studentList", studentService.list()).data("port", port);
     }
 
 }

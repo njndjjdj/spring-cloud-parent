@@ -2,6 +2,7 @@ package com.zyc.service;
 
 import com.zyc.entity.Emp;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.zyc.utils.R;
 
 /**
 * @author Admin
@@ -10,4 +11,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
 */
 public interface EmpService extends IService<Emp> {
 
+    R findStudentBySid();
 }

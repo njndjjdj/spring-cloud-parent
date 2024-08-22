@@ -13,3 +13,6 @@ spring:
           - dataId: common.yml
             refresh: true
         file-extension: yml
+feign:
+  sentinel:
+    enabled: true

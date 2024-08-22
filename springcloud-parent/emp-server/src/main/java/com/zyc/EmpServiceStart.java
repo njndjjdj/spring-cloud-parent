@@ -2,6 +2,10 @@ package com.zyc;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.cloud.openfeign.EnableFeignClients;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
 
 /**
  * 作者:ZYC
@@ -13,9 +17,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * ctrl+f 在本类中查找
  * use:
  */
+@EnableFeignClients("com.zyc.client") // 开启openfeign
 @SpringBootApplication
 public class EmpServiceStart {
     public static void main(String[] args) {
         SpringApplication.run(EmpServiceStart.class, args);
+    }
+
+    @Bean
+    @LoadBalanced       // 此注解要配合spring-cloud-starter-loadbalancer这个依赖才能起作用
+    public RestTemplate restTemplate(){
+        return new RestTemplate();
     }
 }

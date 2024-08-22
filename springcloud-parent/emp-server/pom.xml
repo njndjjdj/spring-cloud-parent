@@ -24,6 +24,24 @@
             <artifactId>common-zyc</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+        <!--微服务调用其他服务的方式一：openfeign-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+        </dependency>
+        <!--如果使用的是restTemplate访问远程服务，就需要添加如下组件，并且在RestTemplate组件加载时添加@LoadBalanced-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
