@@ -1,8 +1,5 @@
-server:
-  port: 8010
+
 spring:
-  application:
-    name: student-server
   cloud:
     nacos:
       discovery:
@@ -12,5 +9,7 @@ spring:
         shared-configs:
           - dataId: common.yml
             refresh: true
+          - data-id: student-server.yml
+            group: STUDENT_GROUP
+            refresh: true
         file-extension: yml
-      server-addr: localhost:8848

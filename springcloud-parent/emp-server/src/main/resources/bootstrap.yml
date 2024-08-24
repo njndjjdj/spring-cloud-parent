@@ -1,8 +1,4 @@
-server:
-  port: 8011
 spring:
-  application:
-    name: emp-server
   cloud:
     nacos:
       discovery:
@@ -12,7 +8,7 @@ spring:
         shared-configs:
           - dataId: common.yml
             refresh: true
+          - dataId: emp-server.yml
+            group: EMP_GROUP
+            refresh: true
         file-extension: yml
-feign:
-  sentinel:
-    enabled: true

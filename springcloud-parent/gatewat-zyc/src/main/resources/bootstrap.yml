@@ -1,17 +1,11 @@
-server:
-  port: 80
-
-spring:
-  application:
-    name: gateway-zyc
-  cloud:
-    gateway:
-      routes:
-        - id: hzit-emp-uri
-          uri: lb://emp-server
-          predicates:
-            - Path=/emp/**
-        - id: student-server-uri
-          uri: lb://student-server
-          predicates:
-            - Path=/student/**
+  spring:
+    cloud:
+      nacos:
+        discovery:
+          server-addr: 192.168.1.148:8848
+        config:
+          shared-configs:
+            - data-id: mygateway.yml
+              group: GATEWAY_GROUP
+              refresh: true
+          server-addr: 192.168.1.148:8848

@@ -2,6 +2,7 @@ package com.zyc;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 /**
  * 作者:ZYC
@@ -13,7 +14,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * ctrl+f 在本类中查找
  * use:
  */
-@SpringBootApplication
+@SpringBootApplication(exclude = DataSourceAutoConfiguration.class)
 public class ZycGatewayStart {
     public static void main(String[] args) {
         SpringApplication.run(ZycGatewayStart.class);

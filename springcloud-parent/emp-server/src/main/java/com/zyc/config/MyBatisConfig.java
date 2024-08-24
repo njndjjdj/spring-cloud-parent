@@ -18,14 +18,14 @@ import org.springframework.context.annotation.Configuration;
  * ctrl+f 在本类中查找
  * use:
  */
-@Configuration
-@MapperScan("com.zyc.mapper")
-public class MyBatisConfig {
-    @Bean
-    public MybatisPlusInterceptor mybatisPlusInterceptor(){
-        MybatisPlusInterceptor mybatisPlusInterceptor = new MybatisPlusInterceptor();
-        mybatisPlusInterceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.MYSQL));
-        mybatisPlusInterceptor.addInnerInterceptor(new OptimisticLockerInnerInterceptor());
-        return mybatisPlusInterceptor;
-    }
-}
+// @Configuration
+// @MapperScan("com.zyc.mapper")
+// public class MyBatisConfig {
+//     @Bean
+//     public MybatisPlusInterceptor mybatisPlusInterceptor(){
+//         MybatisPlusInterceptor mybatisPlusInterceptor = new MybatisPlusInterceptor();
+//         mybatisPlusInterceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.MYSQL));
+//         mybatisPlusInterceptor.addInnerInterceptor(new OptimisticLockerInnerInterceptor());
+//         return mybatisPlusInterceptor;
+//     }
+// }

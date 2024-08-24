@@ -14,6 +14,7 @@
         <module>common-zyc</module>
         <module>emp-server</module>
         <module>gatewat-zyc</module>
+        <module>auth-server</module>
     </modules>
 
     <parent>
