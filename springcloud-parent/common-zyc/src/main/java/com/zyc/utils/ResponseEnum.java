@@ -46,8 +46,8 @@ public enum  ResponseEnum {
 	WEIXIN_CALLBACK_PARAM_ERROR(-601, "回调参数不正确"),
 	WEIXIN_FETCH_ACCESSTOKEN_ERROR(-602, "获取access_token失败"),
 	WEIXIN_FETCH_USERINFO_ERROR(-603, "获取用户信息失败"),
-	BAD_SQL_AMBIGUOUS(501,"数据库表字段列名指代不明确")
-	;
-	private int code;
-	private String message;
+	BAD_SQL_AMBIGUOUS(501,"数据库表字段列名指代不明确"),
+	NOT_PERMISSION_ERROR(403,"您无权访问！");
+	private final int code;
+	private final String message;
 }

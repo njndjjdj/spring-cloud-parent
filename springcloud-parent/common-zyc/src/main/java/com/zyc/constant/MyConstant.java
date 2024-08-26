@@ -15,4 +15,6 @@ public class MyConstant {
     public static final String LOGIN_TOKEN = "login_token:";
     // jwt请求头
     public static final String AUTHORIZATION = "Authorization";
+    public static final String BEARER = "Bearer ";
+    public static final String USER_KEY = "user_key";
 }

@@ -44,9 +44,9 @@ public class TokenServiceImpl implements ITokenService {
         String token = JwtUtil.createToken(climas);
         // 封装要返回的token
         HashMap<String, Object> map = new HashMap<>();
-        map.put("access_token", token);
+        map.put("token", token);
         // 将登陆信息保存到redis中
-        stringRedisTemplate.opsForValue().set(MyConstant.LOGIN_TOKEN + token + ":" + uuid, uuid, 1, TimeUnit.DAYS);
+        stringRedisTemplate.opsForValue().set(MyConstant.LOGIN_TOKEN + uuid, JSON.toJSONString(loginUser), 1, TimeUnit.DAYS);
         return map;
     }
 

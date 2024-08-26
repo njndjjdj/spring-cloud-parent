@@ -36,6 +36,11 @@ public class AdminController {
     @Resource
     private ITokenService tokenService;
 
+    /**
+     * 登陆方法
+     * @param user
+     * @return
+     */
     @PostMapping("/login")
     @ApiOperation("管理员登录")
     public R login(@ApiParam(value = "用户", required = true)@RequestBody User user) {

@@ -1,5 +1,6 @@
 package com.zyc.controller;
 
+import com.zyc.anno.RequiresPromissions;
 import com.zyc.client.StudentClient;
 import com.zyc.utils.R;
 import com.zyc.service.EmpService;
@@ -32,6 +33,7 @@ public class EmpController {
     @Resource
     private EmpService empService;
 
+    @RequiresPromissions(value = "emp:findAllEmp")
     @ApiOperation("查询所有员工")
     @GetMapping("/findAllEmp")
     public R findAllEmp() {
@@ -56,9 +58,9 @@ public class EmpController {
     // 查询学生 (使用RestTemplate调用)
     @ApiOperation("查询所有学生：使用RestTemplate调用")
     @GetMapping("/getAllStudent2")
-    public R findById2(){
+    public R findById2() {
         R r = empService.findStudentBySid();
-        return  r;
+        return r;
 
     }
 }

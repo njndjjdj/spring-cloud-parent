@@ -1,9 +1,9 @@
 package com.zyc.filter;
 
 import com.zyc.properties.MySecurityGatewayProperties;
+import com.zyc.util.JwtUtil;
 import com.zyc.util.ResponseUtil;
 import com.zyc.constant.MyConstant;
-import com.zyc.utils.JwtUtil;
 import io.jsonwebtoken.Claims;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
@@ -76,11 +76,11 @@ public class MyFilter implements GlobalFilter, Ordered {
         Claims claims = JwtUtil.parseToken(token);
         String uuid = (String) claims.get("user_key");
         // 组装redis的key
-        String key = MyConstant.LOGIN_TOKEN + token + ":" + uuid;
-        // 去redis中查找是否有这个key且相等
-        String redisKeyValue = stringRedisTemplate.opsForValue().get(key);
+        String key = MyConstant.LOGIN_TOKEN + uuid;
+        // 去redis中查找是否有这个key
+        Boolean hasKey = stringRedisTemplate.hasKey(key);
         // 不相等直接拦截抛异常
-        if (redisKeyValue == null || !redisKeyValue.equals(uuid)) {
+        if (Boolean.FALSE.equals(hasKey)) {
             return ResponseUtil.webFluxResponseWriter(response, "权限不足，登陆失败！");
         }
         // 满足条件直接放行

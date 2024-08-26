@@ -6,5 +6,15 @@
     <sql id="Base_Column_List">
         id, usercode, username, password
     </sql>
+    <!--根据姓名查询权限列表-->
+    <select id="selectPermissionByUsername" resultType="java.lang.String">
+        SELECT DISTINCT p.percode
+                 FROM sys_user u
+                 JOIN sys_user_role ur ON ur.sysUserId = u.id
+                 JOIN sys_role r ON r.id = ur.sysRoleId
+                 JOIN sys_role_permission rp ON rp.sysRoleId = r.id
+                 JOIN sys_permission p ON p.id = rp.sysPermissionId
+        WHERE u.username = #{username}
+    </select>
 
 </mapper>

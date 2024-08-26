@@ -10,6 +10,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * <p>
@@ -40,8 +41,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IU
         LoginUser loginUser = new LoginUser();
         loginUser.setUserId(dbUser.getId());
         loginUser.setUser(dbUser);
-        // todo 后续存入该用户的权限列表
-
+        // 查询用户权限列表
+        List<String> permissionList = userMapper.selectPermissionByUsername(user.getUsername());
+        loginUser.setPermissions(permissionList);
         return loginUser;
     }
 }
